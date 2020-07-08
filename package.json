@@ -1,7 +1,7 @@
 {
-	"name": "bigbear-ui-tsthunk-template",
+	"name": "<%=projectName%>",
 	"version": "0.1.0",
-	"private": <%="private"%>,
+	"private": <%=private%> ,
 	"autor": "<%=author%>",
 	"description": "<%=description%>",
 	"license": "<%=license%>",
