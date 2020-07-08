@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, lazy } from "react";
+import "bigbear-ui/dist/index.css";
+import { Provider } from "react-redux";
+import { ConnectedRouter } from "connected-react-router";
+import history from "./store/history";
+import store, { persistor } from "./store/store";
+import "./styles/style.scss";
+import { Switch, Route, Redirect } from "react-router";
+import "./IconLibrary";
+import Tabs from "./components/Tab";
+import { PersistGate } from "redux-persist/integration/react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Provider store={store}>
+			<PersistGate loading={null} persistor={persistor}>
+				<ConnectedRouter history={history}>
+					<main className="main-container">
+						<Suspense fallback={null}>
+							<Switch>
+								<Route
+									path="/"
+									exact
+									component={lazy(() =>
+										import("./routes/Home")
+									)}
+								/>
+								<Route
+									path="/cart"
+									exact
+									component={lazy(() =>
+										import("./routes/Home")
+									)}
+								/>
+								<Redirect to="/" />
+							</Switch>
+						</Suspense>
+						<Tabs></Tabs>
+					</main>
+				</ConnectedRouter>
+			</PersistGate>
+		</Provider>
+	);
 }
 
 export default App;

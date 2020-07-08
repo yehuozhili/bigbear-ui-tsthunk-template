@@ -1,0 +1,24 @@
+@import "./mixins/block";
+@import "./mixins/resize";
+
+html {
+    @include root-font-size();
+}
+body {
+    border-width: rem2px(0.6);
+    font-size: px2rem(28);
+    background-color: #f8f8f8;
+}
+#root{
+    height: 100%;
+    width: 100%;
+}
+.main-container{
+    background-color: #FFF;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding-top: px2rem(100);
+    padding-bottom: px2rem(120);
+}
+@import "../routes/Home/style";

@@ -1,3 +1,11 @@
+this is a template based on cra , bigbear-ui , redux , redux-thunk
+
+node-sass might chage registery to install;
+
+yarn config set registry https://registry.npm.taobao.org -g
+
+yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
